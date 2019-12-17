@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('static/core/css/bootstrap.min.css')}}">
+        {% block stylesheets %}{% endblock %}
+        <style>
+            .btn{border-radius: 3px;font-size: 13px;
+                padding: 2px 9px 4px;}
+        </style>
+    </head>
+    <body>
+        {{ include('inc/navbar.html.twig') }}
+        <div class="container">
+        {% block body %}{% endblock %}
+        </div>
+        <script src="{{ asset('static/core/js/jquery.min.js')}}"></script>
+        <script src="{{ asset('static/core/js/popper.min.js')}}"></script>
+        <script src="{{ asset('static/core/js/bootstrap.min.js')}}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

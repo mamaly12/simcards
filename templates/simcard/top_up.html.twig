@@ -1,0 +1,64 @@
+{% extends '/base.html.twig' %}
+
+{% block title  %} add server {% endblock %}
+
+{% block body %}
+{% for flashMessage in app.session.flashbag.get('notice') %}
+
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+
+{% endfor %}
+<table class="table table-striped" id="top_up">
+    <thead class="thead-light">
+        <tr>
+            <th colspan="3" style="text-align:center">Top-Up</th>
+        </tr>
+    </thead>
+    {{ form_start(form) }}
+    <tr>
+        <td>
+            {{ form_label(form.number) }}
+        </td>
+        <td>
+            {{ form_widget(form.number) }}
+        </td>
+        <td>
+        {{ form_errors(form.number) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_label(form.amount) }}
+        </td>
+        <td>
+            {{ form_widget(form.amount) }}
+        </td>
+        <td>
+            {{ form_errors(form.amount) }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ form_label(form.currency) }}
+        </td>
+        <td>
+            {{ form_widget(form.currency) }}
+        </td>
+        <td>
+            {{ form_errors(form.currency) }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <div style="display: inline-block">
+            {{ form_row(form.save) }}
+            </div>
+            <div style="display: inline-block">
+            <a href="{{ path('top_up') }}" class="btn btn-primary mt-3" >Back</a>
+            </div>
+        </td>
+    {{form_end(form)}}
+</table>
+{% endblock %}

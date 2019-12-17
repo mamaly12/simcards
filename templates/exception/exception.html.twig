@@ -1,0 +1,11 @@
+<div class="exception-summary {{ exception.message is empty ? 'exception-without-message' }}">
+    <div class="exception-metadata">
+        <div class="container">
+            <h2 class="exception-http">
+                HTTP {{ status_code }} <small>{{ status_text }}</small>
+            </h2>
+            <h2>{{ exception.message|nl2br|format_file_from_text}}</h2>
+        </div>
+    </div>
+</div>
+
